@@ -1,0 +1,96 @@
+<!-- Start Shop Home List  -->
+<section class="shop-home-list section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="shop-section-title">
+                            <h1>On sale </h1>  
+                        </div>
+                    </div>
+                </div>
+                <!-- Start Single List  -->
+                <ng-container *ngFor="let a of articleNotRev._embedded.articles ; let i = index ">
+                <div *ngIf="i<3" class="single-list">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="list-image overlay">
+                                <img src="{{a.imageName}}" alt="#">
+                                <a routerLink="/getArticleCart/id" (click)="ongetArticleCart(a.id)" class="buy"><i class="fa fa-shopping-bag"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-12 no-padding">
+                            <div class="content">
+                                <h4 class="title"><a routerLink="/getArticle/id" (click)="ongetArticle(a.id)">{{a.designtationArt}}</a></h4>
+                                <p class="price with-discount">{{a.prixArt}} TND</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+                <!-- End Single List  -->
+                
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="shop-section-title">
+                            <h1>New items</h1>
+                        </div>
+                    </div>
+                </div>
+                <!-- Start Single List  -->
+                <ng-container *ngFor="let a of article._embedded.articles ; let i = index ">
+                    <div *ngIf="i<3" class="single-list">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="list-image overlay">
+                                    <img src="{{a.imageName}}" alt="#">
+                                    <a routerLink="/getArticleCart/id" (click)="ongetArticleCart(a.id)" class="buy"><i class="fa fa-shopping-bag"></i></a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-12 no-padding">
+                                <div class="content">
+                                    <h4 class="title"><a routerLink="/getArticle/id" (click)="ongetArticle(a.id)">{{a.designtationArt}}</a></h4>
+                                    <p class="price with-discount">{{a.prixArt}} TND</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+                <!-- End Single List  -->
+                
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="shop-section-title">
+                            <h1>Top viewed</h1>
+                        </div>
+                    </div>
+                </div>
+                <ng-container *ngFor="let a of article._embedded.articles ; let i = index "  >
+                    <div *ngIf="i<3" class="single-list">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="list-image overlay">
+                                    <img src="{{a.imageName}}" alt="#">
+                                    <a routerLink="/getArticleCart/id" (click)="ongetArticleCart(a.id)" class="buy"><i class="fa fa-shopping-bag"></i></a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-12 no-padding">
+                                <div class="content">
+                                    <h4 class="title"><a routerLink="/getArticle/id" (click)="ongetArticle(a.id)" >{{a.designtationArt}}</a></h4>
+                                    <p class="price with-discount">{{a.prixArt}} TND</p>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Shop Home List  -->

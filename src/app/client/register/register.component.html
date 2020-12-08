@@ -1,0 +1,105 @@
+<div>
+    <app-header></app-header>
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100 p-t-85 p-b-20">
+            <form [formGroup]="form" class="login100-form validate-form" #f="ngForm" (ngSubmit) = "registerUser(f.value)">
+                <span class="login100-form-title p-b-70">
+                    Sign Up
+                </span>
+                <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter username">
+                    <input class="input100" type="text" name="username" ngModel formControlName="username">
+                    <span class="focus-input100" data-placeholder="Username" ></span>
+                </div>
+                <div *ngIf="username.touched && username.invalid" class="alert alert-danger">  
+                    <div *ngIf="username.errors.required">Username is Required.</div>  
+                    <div *ngIf="username.errors.email">Username should be email.</div> 
+                </div> 
+
+               
+                <div class="wrap-input100 validate-input m-b-50" data-validate="Enter password">
+                    <input class="input100" type="password" name="password" ngModel formControlName="password">
+                    <span class="focus-input100" data-placeholder="Password"></span>
+                </div>
+                <div *ngIf="password.touched && password.invalid" class="alert alert-danger">  
+                    <div *ngIf="password.errors.required">password is Required.</div>  
+                   
+                </div> 
+
+
+                <div class="wrap-input100 validate-input m-b-50" data-validate="Enter confirmedPassword">
+                    <input class="input100" type="password" name="confirmedPassword" ngModel formControlName="confirmedPassword">
+                    <span class="focus-input100" data-placeholder="confirmedPassword"></span>
+                </div>
+                <div *ngIf="confirmedPassword.touched && confirmedPassword.invalid" class="alert alert-danger">  
+                    <div *ngIf="confirmedPassword.errors.required">confirmedPassword is Required.</div>  
+                     
+                </div> 
+
+                
+                <div class="wrap-input100 validate-input m-b-50" data-validate="Enter cin">
+                    <input class="input100" type="text" name="cin" ngModel formControlName="cin">
+                    <span class="focus-input100" data-placeholder="cin"></span>
+                </div>
+                <div *ngIf="cin.touched && cin.invalid" class="alert alert-danger">  
+                    <div *ngIf="cin.errors.required">cin is Required.</div>  
+                    <div *ngIf="cin.errors.maxlength">cin should be less than 8.</div> 
+                </div> 
+
+
+                <div class="wrap-input100 validate-input m-b-50" data-validate="Enter address">
+                    <input class="input100" type="text" name="address" ngModel formControlName="address">
+                    <span class="focus-input100" data-placeholder="address"></span>
+                </div>
+                <div *ngIf="address.touched && address.invalid" class="alert alert-danger">  
+                    <div *ngIf="address.errors.required">address is Required.</div>  
+                    
+                </div> 
+
+
+                <div class="wrap-input100 validate-input m-b-50" data-validate="Enter phoneNumber">
+                    <input class="input100" type="text" name="phoneNumber" ngModel formControlName="phoneNumber">
+                    <span class="focus-input100" data-placeholder="phoneNumber"></span>
+                </div>
+                <div *ngIf="phoneNumber.touched && phoneNumber.invalid" class="alert alert-danger">  
+                    <div *ngIf="phoneNumber.errors.required">phoneNumber is Required.</div>  
+                    <div *ngIf="phoneNumber.errors.maxlength">phoneNumber should be less than 8.</div> 
+                </div> 
+
+
+                <div class="container-login100-form-btn">
+                    <button class="login100-form-btn">
+                        Register
+                    </button>
+                </div>
+
+                <ul class="login-more p-t-190">
+                    <li class="m-b-8">
+                        <span class="txt1">
+                            Forgot
+                        </span>
+
+                        <a href="#" class="txt2">
+                            Username / Password?
+                        </a>
+                    </li>
+
+                    <li>
+                        <span class="txt1">
+                            Don’t have an account?
+                        </span>
+
+                        <a routerLink="/login" class="txt2">
+                            Sign in
+                        </a>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</div>
+<hr>
+<app-newsletter></app-newsletter>
+    <app-modal></app-modal>
+    <app-footer></app-footer>
+</div>

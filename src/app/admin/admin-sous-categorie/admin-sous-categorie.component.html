@@ -1,0 +1,111 @@
+<app-admin-side-nav></app-admin-side-nav>
+<div class="col main pt-5 mt-3" style="position: absolute; top: 5px; left: 15%; width: 80%;">
+<div class="panel panel-default">
+   
+    <div class="panel-body">
+        <div>
+            <button  class="btn btn-info btn-lg" (click)="onNewSousCategorie()">
+                <span class="glyphicon glyphicon-plus"></span> Add New Sous Categorie 
+            </button>
+        </div>
+  
+       <div *ngIf="mode == 'new-cat' " class="col-md-6">
+        <form  (ngSubmit) = "onSaveSousCategorie()">
+            
+            <div class="form-group">
+                <label class="control-label">Name</label>
+                <input type="text" name="libelleSousCat" ngModel class="form-control" [(ngModel)]="sousCategorie.libelleSousCat">
+            </div>
+           
+           <label for ="categorie">Name Category</label>
+           <select name="libelleCat" class="form-control"  [(ngModel)]="sousCategorie.categorie.mat" >
+               <option *ngFor="let cat of categories" [value]="cat.mat"> {{cat.libelleCat}}</option>
+             
+           </select>
+           <br>
+            <button class="btn btn-success">Save</button>
+        </form>
+    </div><br>
+    <div class="md-form active-cyan active-cyan-2 mb-3" *ngIf="mode != 'new-cat' ">
+        <input  [(ngModel)]="searchText" class="form-control" type="text" placeholder="Search ..." aria-label="Search">
+      </div>
+        <div *ngIf="mode == 'list'">
+            <table class="table" *ngIf="show">
+                <tr>
+                    
+                    <th>Name</th>
+                    <th>idCat</th>
+                    <th>Name Category</th>
+                   
+                </tr>
+                <tr *ngFor="let c of sousCategories | filter:searchText " >
+                   
+                  <td>  {{c.libelleSousCat}}  </td>
+                  <td>  {{c.categorie.mat}}  </td>
+                  <td>  {{c.categorie.libelleCat}}  </td>
+                  
+                  <td>
+                      <button  class="btn btn-info btn-lg" (click)="onDeletesousCategorie(c)">
+                        <span class="glyphicon glyphicon-remove"></span> Remove 
+                    </button>
+                  </td>
+                  <td>
+                    <button  class="btn btn-info btn-lg" (click)="onEditsousCategorie(c)" data-toggle="modal" data-target="#exampleModal">
+                      <span class="glyphicon glyphicon-edit"></span> edit 
+                  </button>
+                </td>
+                  
+                  
+                </tr>
+               
+            </table>
+        </div>
+     
+    </div>
+</div>
+
+ 
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="corps">
+            <div  class="col-md-6">
+                <form  (ngSubmit) = "onUpdateSousCategorie()">
+                    <div class="form-group">
+                        <label class="control-label">id</label>
+                        <input type="text" name="mat" ngModel class="form-control" [(ngModel)]="currentsousCategorie.mat" >
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Name</label>
+                        <input type="text" name="libelleSousCat" ngModel class="form-control" [(ngModel)]="currentsousCategorie.libelleSousCat" >
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">idCat</label>
+                        <input type="text" name="mat" ngModel class="form-control" [(ngModel)]="currentsousCategorie.categorie.mat" >
+                    </div>
+                    <label for ="categorie">Name Category</label>
+                    <select name="libelleCat" class="form-control"  [(ngModel)]="currentsousCategorie.categorie.mat" >
+                        <option *ngFor="let cat of categories" [value]="cat.mat"> {{cat.libelleCat}}</option>
+
+                    </select>
+                   <br>
+                    <button style="margin: 10px;" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button class="btn btn-success">Update</button>
+                </form>
+    
+            </div>
+        </div>
+        <div class="modal-footer" >
+         
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

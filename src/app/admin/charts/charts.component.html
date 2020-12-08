@@ -1,0 +1,23 @@
+<app-admin-side-nav></app-admin-side-nav>
+<div class="row" style="margin-left: 205px;margin-top: -240px; height: auto;">
+    <div class="col-5">
+    <canvas mdbChart
+        [chartType]="chartType"
+        [datasets]="chartDatasets"
+        [labels]="chartLabels"
+        [colors]="chartColors"
+        [options]="chartOptions"
+        [legend]="true"
+        (chartHover)="chartHovered($event)"
+        (chartClick)="chartClicked($event)">
+    </canvas> <p>Product Number</p>
+</div>
+  </div>
+<div class="row" >
+    <div class="col-5" style="margin-left: 700px;margin-top: -270px;">
+  <app-bar-chart style="height: auto;"></app-bar-chart>
+</div>
+<div class="row" style="margin-left: 14%;">
+<app-chiffre-aff-charts></app-chiffre-aff-charts>
+</div>
+</div>

@@ -1,0 +1,40 @@
+<div class="sb-nav-fixed">
+    <app-nav-bar></app-nav-bar>
+    <div id="layoutSidenav">
+    
+    <app-side-nav></app-side-nav>   
+
+
+  
+  
+    
+<div id="layoutSidenav_content">   
+<div class="container spacer">
+    <div class="card card-default">
+        <strong class="card-heading card bg-primary text-white ">Saisir Marque</strong>
+        <div class="card-body">
+            <form #f="ngForm" (ngSubmit)="onSaveMarque(f.value)">
+               
+        
+                <div class="form-group">
+                    <label class="control-labem">Libelle:</label>
+                    <input class="form-control" type="text" ngModel name="libelleMarq" required>
+        
+                </div>
+        
+                
+        
+                 <button [disabled]="!f.valid" type="submit" class="btn btn-success">Save</button>   
+        
+        
+        
+            </form>
+        
+
+        </div>
+    </div>
+    
+</div>
+</div>
+</div>
+</div>

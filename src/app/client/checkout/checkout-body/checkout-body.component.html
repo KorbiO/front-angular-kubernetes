@@ -1,0 +1,133 @@
+<!-- Start Checkout -->
+<section class="shop checkout section">
+    <div class="container">
+        <div class="row"> 
+            <div class="col-lg-8 col-12">
+                <div class="checkout-form">
+                    <h2>Make Your Checkout Here</h2>
+                    <p>Please register in order to checkout more quickly</p>
+                    <!-- Form -->
+                    <form class="form" method="post" action="#">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="form-group">
+                                    <label>First Name<span>*</span></label>
+                                    <input type="text" name="name" placeholder="" required="required" value={{userObj.username}}>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="form-group">
+                                   
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="form-group">
+                                    <label>Last Name<span>*</span></label>
+                                    <input type="text" name="name" placeholder="" required="required"value={{userObj.username}}>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="form-group">
+                                   
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="form-group">
+                                    <label>Email Address<span>*</span></label>
+                                    <input type="email" name="email" placeholder="" required="required" value={{userObj.username}}>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="form-group">
+                                   
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="form-group">
+                                    <label>Phone Number<span>*</span></label>
+                                    <input type="number" name="number" placeholder="" required="required" value={{userObj.phoneNumber}}>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="form-group">
+                                    
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="form-group">
+                                    <label>Address Line <span>*</span></label>
+                                    <input type="text" name="address" placeholder="" required="required" value={{userObj.address}}>
+                                </div>
+                            </div>
+                           
+                            <div class="col-12">
+                                <div class="form-group create-account">
+                                    <input id="cbox" type="checkbox">
+                                    <label>Create an account?</label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!--/ End Form -->
+                </div>
+            </div>
+            <div class="col-lg-4 col-12">
+                <div class="order-details">
+                    <!-- Order Widget -->
+                    <div class="single-widget">
+                        <h2>CART  TOTALS</h2>
+                        <div class="content">
+                            <ul>
+                                <li>Sub Total<span>{{total}} DT</span></li>
+                                <li>(+) Shipping<span>10 DT</span></li>
+                                <li class="last">Total<span>{{total + 10}} DT</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--/ End Order Widget -->
+                    <!-- Order Widget -->
+                    
+                      
+                       
+                    
+                    <div class="single-widget">
+                        <h2>Payments</h2>
+                        <div class="content">
+                            <select (change)="selectChangeHandler($event)">
+                                <option value="Check Payments">Check Payments</option>
+                                <option value="Cash On Delivery">Cash On Delivery</option>
+                                <option value="PayPal">PayPal</option>
+                                
+                            </select>
+                        </div>
+                    </div>
+                    <!--/ End Order Widget -->
+                    <!-- Payment Method Widget -->
+                    <div class="single-widget payement">
+                        <div class="content">
+                            <img src="https://img.generation-nt.com/paypal-logo_0670045701665860.png" style="width: 51px;height: 51px;" alt="#">
+                        </div>
+                    </div>
+                    <!--/ End Payment Method Widget -->
+                    <!-- Button Widget -->
+                    <div class="single-widget get-button">
+                        <div class="content">
+                            <div class="button">
+                                <a class="btn" (click)="onPostCommande()">proceed to checkout</a>
+                            </div>
+                            <div class="button">
+                                <a class="btn" (click)="pay()">pay</a>
+                            </div>
+                            <div class="button">
+                                <a class="btn" routerLink="/facture">get order</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/ End Button Widget -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--/ End Checkout -->

@@ -1,0 +1,179 @@
+<div class="sb-nav-fixed">
+    <app-nav-bar></app-nav-bar>
+    <div id="layoutSidenav">
+    
+    <app-side-nav></app-side-nav>   
+    <div id="layoutSidenav_content">   
+
+<div class="container ">
+    <div class=" card panel-primary" *ngIf="mode==1">
+        <strong class="card bg-primary text-white">New Article</strong>
+          <div class="card-body">
+              <div >  
+
+               
+                <div class="form-group">
+                    <label  class="control-label">Label:</label>
+                    <input  class="form-control" type="text"  [(ngModel)]="article.designtationArt">
+
+                </div>
+
+                <div class="form-group">
+                    <label  class="control-label">Description:</label>
+                    <input  class="form-control" type="text"  [(ngModel)]="article.descriptionArt">
+
+                </div>
+
+                <div class="form-group">
+                    <label  class="control-label">QteStock:</label>
+                    <input  class="form-control" type="text"  [(ngModel)]="article.qteStockArt">
+
+                </div>
+
+                <div class="form-group">
+                    <label  class="control-label">Prix:</label>
+                    <input  class="form-control" type="text"  [(ngModel)]="article.prixArt">
+
+                </div>
+                <div class="form-group">
+                    <label  class="control-label">Discount Pourcentage:</label>
+                    <input  class="form-control" type="text"  [(ngModel)]="article.tauxRemiseArt">
+
+                </div>
+
+                <div class="form-group">
+                    <label for ="marqueArt">Marque Article:</label>
+                    <select name="libelleMarq" class="form-control"  [(ngModel)]="article.marqueArt.mat" >
+                    <option *ngFor="let cat of pageMarque._embedded.marques" [value]="cat.mat"> {{cat.libelleMarq}}</option>
+             
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for ="marqueArt">Categorie Article:</label>
+                    <select name="libelleSousCat" class="form-control"  [(ngModel)]="article.sousCategorieArt.mat" >
+                    <option *ngFor="let cat of pageCategorie._embedded.sousCategories" [value]="cat.mat"> {{cat.libelleSousCat}}</option>
+             
+                    </select>
+                </div>
+
+                
+                <!-- <div class="form-group">
+                    <label for ="fournisseurArt">Fournisseur Article:</label>
+                    <select name="username" class="form-control"  [(ngModel)]="article.fournisseurArt.username" >
+                    <option *ngFor="let cat of fournisseur" [value]="cat.username"> {{cat.username}}</option>
+             
+                    </select>
+                </div>
+            
+            <div class="form-group">
+                    <label for ="fournisseurArt" class="control-label">Fournisseur:</label>
+                    <input  class="form-control" type="text"  [value]="fournisseur.username" [(ngModel)]="article.fournisseurArt">
+
+                </div>    
+            -->
+
+
+                 
+                
+      <!--          <div class="form-group">
+                    <label  class="control-label">Id Image :</label>
+                    <input  class="form-control" type="text"  [(ngModel)]="article.imageModel.mat">
+
+                </div>
+                <div class="form-group">
+                    <label  class="control-label">Image:</label>
+                    <input  class="form-control" type="file"  (change)="onFileChanged($event)"  >
+
+                </div> 
+                <div class="col-md-6">
+                    <input type="button" (click)="onUpload()" value="upload">
+                </div>
+                -->
+                <div class="form-group">
+                    <label  class="control-label">Image Name :</label>
+                    <input  class="form-control" type="text"  [(ngModel)]="article.imageName">
+
+                </div>
+         <button class="btn btn-primary" (click)="saveArticle()">Save</button>
+                
+            </div>
+          
+            
+         </div>
+          
+    </div>
+
+    <!--  -->
+    <div class=" panel panel-primary" *ngIf="mode==2">
+        <div class=" panel-heading" style="color: red; font-size: large;">Confirmation</div>
+          <div class="panel-body">
+              <div >  
+
+                <div class="form-group">
+                    <strong  class="control-label">Matricule:</strong>
+                    <label>{{ article.id }}</label>
+
+                </div>
+
+                <div class="form-group">
+                    <strong  class="control-label">Label:</strong>
+                    <label>{{ article.designtationArt }}</label>
+                </div>
+
+                <div class="form-group">
+                    <strong  class="control-label">Description:</strong>
+                    <label>{{ article.descriptionArt }}</label>
+
+                </div>
+
+                <div class="form-group">
+                    <strong  class="control-label">QteStock:</strong>
+                    <label>{{ article.qteStockArt }}</label>
+
+                </div>
+
+                <div class="form-group">
+                    <label  class="control-label">Prix:</label>
+                    <label>{{ article.prixArt }}</label>
+
+                </div>
+                <div class="form-group">
+                    <label  class="control-label">Discount Pourcentage</label>
+                    <label>{{ article.tauxRemiseArt }}</label>
+
+                </div>
+                
+
+                
+                
+                <div class="form-group">
+                    <strong  class="control-label">Mark article:</strong>
+                    <label>{{ article.libelleMarq }}</label>
+
+                </div>
+                <div class="form-group">
+                    <strong  class="control-label">Categorie Article:</strong>
+                    <label>{{ article.libelleSousCat }}</label>
+
+                </div>
+                <div class="form-group">
+                    <strong  class="control-label">Fournisseur:</strong>
+                    <label>{{ article.fournisseurArt }}</label>
+
+                </div>
+
+                
+                
+                
+                <button class="btn btn-primary" (click)="mode=1">Add  article</button>
+                
+            </div>
+          
+            
+         </div>
+          
+    </div>
+</div>    
+</div>
+</div>

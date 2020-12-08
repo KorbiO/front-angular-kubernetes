@@ -1,0 +1,187 @@
+		<!-- Start Blog Single -->
+		<section  class="blog-single section">
+			<div class="container">
+				<div class="row">
+					
+					<div class="col-lg-8 col-12">
+						<img src="assets/images/VF.jpg " *ngIf="article.isArtVF"  style="position: relative; left: 1060px; width: 200px; height: 200px;">
+						<div class="blog-single-main">
+							
+							<div class="row">
+								<div class="col-12">
+									<div class="image">
+										<img src="{{article.imageName}}" alt="#">
+										
+									</div>
+								  
+									<div class="blog-detail">
+										<h2 class="blog-title">{{article.designtationArt}}</h2>
+										<h5>Marque :{{article.marqueArt.libelleMarq}}</h5>
+										
+										<div class="share-social">
+											<div class="row">
+												<div class="col-12">
+													<div class="content-tags">
+														<ul   class="tag-inner">			
+															<li style="margin-left: 70%; " ><a routerLink="/getArticleCart/id" (click)="ongetArticleCart(article.id)">Add to Cart </a></li>													
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="blog-meta">
+											<span class="author"></span>
+										</div>
+										<div class="content" >
+											
+											<h4 >Prix :{{article.prixArt}} TND</h4>
+											<h4 *ngIf="article.isArtVF === true">Prix VF:{{article.prixArtVF}} TND</h4>		
+
+											
+											<p>Description : {{article.descriptionArt}}</p>
+											
+										</div>
+									</div>
+									<div class="share-social">
+										<div class="row">
+											<div class="col-12">
+												<div class="content-tags">
+													<h4>Tags:</h4>
+													
+													<ul   class="tag-inner">
+								
+													
+														<li *ngFor= "let s of sousCat._embedded.sousCategories">
+															<ng-container *ngIf=" article.sousCategorieArt.categorie.libelleCat === s.categorie.libelleCat  " >
+															<a routerLink="/sousCat/id" (click)="ongetSousCat(s.id)" >{{s.libelleSousCat}}</a></ng-container>
+														</li>
+														
+																				
+													</ul>
+													
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-12">
+									<div *ngIf="article.avisArt != null" class="comments">
+										<h3 class="comment-title">Comments </h3>
+										<!-- Single Comment -->
+										<div class="single-comment">
+											<img src="https://via.placeholder.com/80x80" alt="#">
+											<div class="content">
+												<h4>{{article.avisArt.client.nom}} {{article.avisArt.client.prenom}}<span>At : {{article.avisArt.dateAvis }}</span></h4>
+												<p>{{article.avisArt.avis}}</p>
+												
+											</div>
+										</div>
+										<!-- End Single Comment -->
+								
+									</div>									
+								</div>											
+								<div class="col-12">			
+									<div class="reply">
+										<div class="reply-head">
+											<h2 class="reply-title">Leave a Comment</h2>
+											<!-- Comment Form -->
+											<form class="form" action="#">
+												<div class="row">
+													<div class="col-lg-6 col-md-6 col-12">
+														<div class="form-group">
+															<label>Your Name<span>*</span></label>
+															<input type="text" name="name" placeholder="" required="required">
+														</div>
+													</div>
+													<div class="col-lg-6 col-md-6 col-12">
+														<div class="form-group">
+															<label>Your Email<span>*</span></label>
+															<input type="email" name="email" placeholder="" required="required">
+														</div>
+													</div>
+													<div class="col-12">
+														<div class="form-group">
+															<label>Your Message<span>*</span></label>
+															<textarea name="message" placeholder=""></textarea>
+														</div>
+													</div>
+													<div class="col-12">
+														<div class="form-group button">
+															<button type="submit" class="btn">Post comment</button>
+														</div>
+													</div>
+												</div>
+											</form>
+											<!-- End Comment Form -->
+										</div>
+									</div>			
+								</div>			
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-12">
+						<div class="main-sidebar">
+							<!-- Single Widget -->
+							<div class="single-widget search">
+								<div class="form">
+									<input type="email" placeholder="Search Here...">
+									<a class="button" href="#"><i class="fa fa-search"></i></a>
+								</div>
+							</div>
+							<!--/ End Single Widget -->
+							<!-- Single Widget -->
+							<div class="single-widget category">
+								<h3 class="title">Categories</h3>
+								<ul class="categor-list">
+									<li *ngFor="let c of cat._embedded.categories " ><a href="#">{{c.libelleCat}}</a></li>
+									
+								</ul>
+							</div>
+							<!--/ End Single Widget -->
+							<!-- Single Widget -->
+							<div class="single-widget recent-post">
+								<h3 class="title">Other Products</h3>
+								<!-- Single Post -->
+								<ng-container *ngFor="let a of art._embedded.articles ; let i =index" >
+								<div  *ngIf=" i<3 && a.sousCategorieArt.libelleSousCat == article.sousCategorieArt.libelleSousCat && a.designtationArt != article.designtationArt" class="single-post">
+
+									<div class="image">
+										<img src="{{a.imageName}}"	  alt="#">
+									</div>
+									<div class="content">
+										<h5><a routerLink="/getArticle/id" (click)="ongetArticle(a.id)" >{{a.designtationArt}}</a></h5>
+										<ul class="comment">
+											<li><i class="money-bill-alt" aria-hidden="true"></i>{{a.prixArt}} TND</li>
+											
+										</ul>
+									</div>
+								</div>
+							</ng-container>
+								<!-- End Single Post -->
+								 
+							</div>
+							<!--/ End Single Widget -->
+							<!-- Single Widget -->
+							<!--/ End Single Widget -->
+							<!-- Single Widget -->
+							<div class="single-widget side-tags">
+								<h3 class="title">Tags</h3>
+								<ul class="tag">
+		
+									<li  *ngFor= "let s of sousCat._embedded.sousCategories">
+										<ng-container *ngIf=" article.sousCategorieArt.categorie.libelleCat === s.categorie.libelleCat  " >
+										<a routerLink="/sousCat/id" (click)="ongetSousCat(s.id)">{{s.libelleSousCat}}</a></ng-container>
+									</li>
+									
+								
+								</ul>
+							</div>
+							<!--/ End Single Widget -->
+						
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--/ End Blog Single -->
+		

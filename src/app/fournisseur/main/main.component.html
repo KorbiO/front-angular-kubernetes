@@ -1,0 +1,62 @@
+<div class="sb-nav-fixed">
+    <app-nav-bar></app-nav-bar>
+    <div id="layoutSidenav">
+    
+    <app-side-nav></app-side-nav>    
+<div id="layoutSidenav_content">
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4">Seller Space</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Welcome seller, any broke of rules will enter the immidiate "ban"</li>
+        </ol>
+        
+        
+        <!-- -->
+        <div class="card mb-4">
+            <div class="card-header"><i class="fas fa-table mr-1"></i> Products </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Mark</th>
+                                <th>Prix</th>
+                                <th>Quantitè Stock</th>
+                                <th>Taux de remise</th>
+                                <th>Ref</th>
+                            </tr>
+                        </thead>
+                        
+                        <tbody>
+                            
+                            
+
+                            <tr *ngFor="let c of pageArticles._embedded.articles ">
+                                <ng-container *ngIf="c.fournisseurArt.username === userObj.username">
+                                <td>{{ c.designtationArt }}</td>
+                                <td>{{ c.marqueArt.libelleMarq }}</td>
+                                <td>{{ c.prixArt }}</td>
+                                <td>{{ c.qteStockArt }}</td>
+                                <td>{{ c.tauxRemiseArt }}</td>
+                                <td>{{ c.mat }}</td>
+                            
+                                <td class="btn-group ">
+                                    <button  class="btn btn-success clickable" (click)="onEditArticle(c.id)"><i class="fas fa-edit"></i></button>
+                                    <button class="btn btn-danger clickable" (click)="onDeleteArticle(c)"><i class="fas fa-trash-alt"></i></button>
+                                </td>
+                            </ng-container>
+                            </tr>
+                            
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</div>
+</div>
+</div>

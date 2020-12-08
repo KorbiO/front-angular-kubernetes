@@ -1,0 +1,160 @@
+<app-admin-side-nav></app-admin-side-nav>
+<div class="col main pt-5 mt-3" style="position: absolute; top: 5px; left: 15%; width: 80%;">
+<div class="panel panel-default">
+   
+    <div class="panel-body">
+        <div>
+            <button  class="btn btn-info btn-lg" (click)="onNewClient()">
+                <span class="glyphicon glyphicon-plus"></span> Add New User 
+            </button>
+        </div>
+        <div *ngIf="mode == 'new-cat' " class="col-md-6">
+            <form #f="ngForm" (ngSubmit) = "onSaveClient(f.value)">
+                <div class="form-group">
+                    <label class="control-label">id</label>
+                    <input type="text" name="mat" ngModel class="form-control">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Username</label>
+                    <input type="text" name="username" ngModel class="form-control">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">password</label>
+                    <input type="password" name="password" ngModel class="form-control">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">cin</label>
+                    <input type="text" name="cin" ngModel class="form-control">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Phone Number</label>
+                    <input type="text" name="phoneNumber" ngModel class="form-control">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Address</label>
+                    <input type="text" name="address" ngModel class="form-control">
+                </div>
+            
+                <button class="btn btn-success">Save</button>
+            </form>
+        </div>
+        <div *ngIf="mode == 'edit-cat' " class="col-md-6">
+            <form #f="ngForm" (ngSubmit) = "onUpdateClient(f.value)">
+                <div class="form-group">
+                    <label class="control-label">username</label>
+                    <input type="text" name="username" ngModel class="form-control" [(ngModel)] = "currentClient.username">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">password</label>
+                    <input type="password" name="password" ngModel class="form-control" [(ngModel)] = "currentClient.password">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">cin</label>
+                    <input type="text" name="cin" ngModel class="form-control">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Phone Number</label>
+                    <input type="text" name="phoneNumber" ngModel class="form-control" [(ngModel)] = "currentClient.phoneNumber">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Address</label>
+                    <input type="text" name="address" ngModel class="form-control" [(ngModel)] = "currentClient.address">
+                </div>
+                
+                <button class="btn btn-success">Update</button>
+            </form>
+
+        </div> <br>
+        <div class="md-form active-cyan active-cyan-2 mb-3" *ngIf="mode != 'new-cat' ">
+            <input  [(ngModel)]="searchText" class="form-control" type="text" placeholder="Search ..." aria-label="Search">
+          </div>
+        <div *ngIf="mode == 'list'">
+            <table class="table" *ngIf="show">
+                <tr>
+                   
+                    <th>username</th>
+                    <th>password</th>
+                    <th>phoneNumber</th>
+                    <th>address</th>
+                    <th>cin</th>
+                </tr>
+                <tr *ngFor="let c of clients | filter:searchText">
+                     
+                  <td>  {{c.username}}  </td>
+                  <td>  {{c.password}}  </td>
+                  <td>  {{c.phoneNumber}}  </td>
+                  <td>  {{c.address}}  </td>
+                  <td>  {{c.cin}}  </td>
+                  <td>
+                      <button  class="btn btn-info btn-lg" (click)="onDeleteClient(c)">
+                        <span class="glyphicon glyphicon-remove"></span> Remove 
+                    </button>
+                  </td>
+                  <td>
+                    <button  class="btn btn-info btn-lg" (click)="onEditClient(c)" data-toggle="modal" data-target="#exampleModal">
+                      <span class="glyphicon glyphicon-edit"></span> edit 
+                  </button>
+                </td>
+                  
+                  
+                </tr>
+               
+            </table>
+        </div>
+     
+    </div>
+</div>
+
+ 
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="corps">
+            <div  class="col-md-6">
+                <form #f="ngForm" (ngSubmit) = "onUpdateClient(f.value)">
+                    <div class="form-group">
+                        <label class="control-label">id</label>
+                        <input type="text" name="mat" ngModel class="form-control" [(ngModel)]="currentClient.mat" >
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">username</label>
+                        <input type="text" name="username" ngModel class="form-control" [(ngModel)]="currentClient.username" >
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">password</label>
+                        <input type="password" name="password" ngModel class="form-control" [(ngModel)]="currentClient.password">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">cin</label>
+                        <input type="text" name="cin" ngModel class="form-control"  [(ngModel)]="currentClient.cin">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Phone Number</label>
+                        <input type="text" name="phoneNumber" ngModel class="form-control" [(ngModel)]="currentClient.phoneNumber">
+                        
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label">Address</label>
+                        <input type="text" name="address" ngModel class="form-control"  [(ngModel)]="currentClient.address" >
+                    </div>
+                    <button style="margin: 10px;" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button class="btn btn-success">Update</button>
+                </form>
+    
+            </div>
+        </div>
+        <div class="modal-footer" >
+         
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

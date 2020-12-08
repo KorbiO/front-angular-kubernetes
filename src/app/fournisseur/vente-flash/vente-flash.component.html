@@ -1,0 +1,67 @@
+
+<div class="sb-nav-fixed">
+    <app-nav-bar></app-nav-bar>
+    <div id="layoutSidenav">
+    
+    <app-side-nav></app-side-nav>    
+<div id="layoutSidenav_content">
+<div id="layoutSidenav_content">
+    <main style="margin-left: -20%;">
+        <div class="container-fluid">
+            <h1 class="mt-4">Vente Flash</h1>
+            
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item active">Vente Flash begin: {{ listArticlesVF._embedded.venteFlashes[0].dateDebVF }} ----->
+                   End Vente Flash: {{ listArticlesVF._embedded.venteFlashes[0].dateFinVF }}
+
+                </li>
+            </ol>
+            
+            
+            <!-- -->
+            <div class="card mb-4">
+                <div class="card-header"><i class="fas fa-table mr-1"></i> Articles Vente Flash </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    
+                                    <th>Article</th>
+                                    <th>Prix Origin</th>
+                                    <th>Discount</th>
+                                    <th>Quantitè dispo vente flash</th>
+                                    <th>Prix Vente Flash</th>
+                                </tr>
+                            </thead>
+                            
+                            <tbody>
+                                
+                                
+    
+                                <tr *ngFor="let c of listArticlesVF._embedded.venteFlashes[0].articleVenteFlash ">
+                                    <td>{{ c.designtationArt }}</td>
+                                    <td>{{ c.prixArt }}</td>
+                                    <td>{{ c.tauxRemiseArt }}</td>
+                                    
+                                    <td>{{ c.qteStockArtVF }}</td>
+
+                                    <td>{{ c.prixArtVF }}</td>
+                                    
+                                    
+                                    
+
+                                    
+                                </tr>                                 
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,146 @@
+<div class="container spacer">
+    <div class=" panel panel-primary" *ngIf="mode==1">
+        <div class=" panel-heading">New article</div>
+          <div class="panel-body">
+              <div >  
+
+                <div class="form-group">
+                    <label  class="control-label">Matricule:</label>
+                    <input  class="form-control" type="text"  [(ngModel)]="article.mat">
+
+                </div>
+
+                
+                <div class="form-group">
+                    <label  class="control-label">Label:</label>
+                    <input  class="form-control" type="text"  [(ngModel)]="article.designtationArt">
+
+                </div>
+
+                <div class="form-group">
+                    <label  class="control-label">Description:</label>
+                    <input  class="form-control" type="text"  [(ngModel)]="article.descriptionArt">
+
+                </div>
+
+                <div class="form-group">
+                    <label  class="control-label">QteStock:</label>
+                    <input  class="form-control" type="text"  [(ngModel)]="article.qteStockArt">
+
+                </div>
+
+                <div class="form-group">
+                    <label  class="control-label">Prix:</label>
+                    <input  class="form-control" type="date"  [(ngModel)]="article.prixArt">
+
+                </div>
+                <div class="form-group">
+                    <label  class="control-label">Discount Percentage:</label>
+                    <input  class="form-control" type="text"  [(ngModel)]="article.tauxRemiseArt">
+
+                </div>
+                <div class="form-group">
+                    <label for ="marqueArt">Marque Article:</label>
+                    <select name="libelleMarq" class="form-control"  [(ngModel)]="article.marqueArt.mat" >
+                    <option *ngFor="let cat of pageMarque._embedded.marques" [value]="cat.mat"> {{cat.libelleMarq}}</option>
+             
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for ="marqueArt">Categorie Article:</label>
+                    <select name="libelleSousCat" class="form-control"  [(ngModel)]="article.sousCategorieArt.mat" >
+                    <option *ngFor="let cat of pageCategorie._embedded.sousCategories" [value]="cat.mat"> {{cat.libelleSousCat}}</option>
+             
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label  class="control-label">Image:</label>
+                    <input  class="form-control" type="text"  [(ngModel)]="article.imageModel">
+
+                </div>
+
+                
+
+                
+                
+                <button class="btn btn-primary" (click)="updateArticle()">Update</button>
+                
+            </div>
+          
+            
+         </div>
+          
+    </div>
+
+    <!--  -->
+    <div class=" panel panel-primary" *ngIf="mode==2">
+        <div class=" panel-heading">Confirmation</div>
+          <div class="panel-body">
+              <div >  
+
+                <div class="form-group">
+                    <label  class="control-label">Label:</label>
+                    <label>{{ article.designtationArt }}</label>
+
+                </div>
+
+                <div class="form-group">
+                    <label  class="control-label">Description:</label>
+                    <label>{{ article.descriptionArt }}</label>
+                </div>
+
+                <div class="form-group">
+                    <label  class="control-label">QteStock:</label>
+                    <label>{{ article.qteStockArt }}</label>
+
+                </div>
+
+                <div class="form-group">
+                    <label  class="control-label">Prix:</label>
+                    <label>{{ article.prixArt }}</label>
+
+                </div>
+
+                <div class="form-group">
+                    <label  class="control-label">Discount Percentage:</label>
+                    <label>{{ article.tauxRemiseArt }}</label>
+
+                </div>
+                <div class="form-group">
+                    <label  class="control-label">Marque:</label>
+                    <label>{{ article.marqueArt }}</label>
+
+                </div>
+
+                <div class="form-group">
+                    <label  class="control-label">Categorie:</label>
+                    <label>{{ article.sousCategorieArt }}</label>
+
+                </div>
+
+                <div class="form-group">
+                    <label  class="control-label">Image:</label>
+                    <label>{{ article.imageModel }}</label>
+
+                </div>
+                <div class="form-group">
+                    <label  class="control-label">Ref:</label>
+                    <label>{{ article.mat }}</label>
+
+                </div>
+
+                
+                
+                <button class="btn btn-primary" (click)="mode=1">Add article</button>
+                
+            </div>
+          
+            
+         </div>
+          
+    </div>
+</div>
+
+

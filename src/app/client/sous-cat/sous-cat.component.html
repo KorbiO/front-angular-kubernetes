@@ -1,0 +1,102 @@
+<app-header></app-header>
+<!-- Product Style -->
+<section class="product-area shop-sidebar shop section">
+    <div class="container">
+        
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-12">
+                <div class="shop-sidebar">
+                        <!-- Single Widget -->
+                        
+                        <!--/ End Single Widget -->
+                        <!-- Shop By Price -->
+                        
+                            <div class="single-widget range" style="margin-top: 100px;">
+                                <h3 class="title">Shop by Price</h3>
+                                <div class="price-filter">
+                                    <div class="price-filter-inner">
+                                        <div id="slider-range"></div>
+                                            <div class="price_slider_amount">
+                                            <div class="label-input">
+                                                <span>Range:</span><input type="text" id="amount" name="price" placeholder="Add Your Price"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <ul class="check-box-list">
+                                    <li>
+                                        <label class="checkbox-inline" for="1"><input name="news" id="1" type="checkbox">$20 - $50<span class="count">(3)</span></label>
+                                    </li>
+                                    <li>
+                                        <label class="checkbox-inline" for="2"><input name="news" id="2" type="checkbox">$50 - $100<span class="count">(5)</span></label>
+                                    </li>
+                                    <li>
+                                        <label class="checkbox-inline" for="3"><input name="news" id="3" type="checkbox">$100 - $250<span class="count">(8)</span></label>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--/ End Shop By Price -->
+                        <!-- Single Widget -->
+                        
+                       
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-8 col-12">
+                <div class="row">
+                    <div class="col-12">
+                        <!-- Shop Top -->
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="section-title">
+                                        <h2>{{sousCat.libelleSousCat}}</h2>
+                                    </div>
+                                    <div class="form-inline d-flex justify-content-center md-form form-sm mt-0" style="position: relative; bottom: 20px;">
+           
+                                        <input  [(ngModel)]="searchText"  class="form-control form-control-sm ml-3 w-50" type="text" placeholder="Search"
+                                          aria-label="Search"> <i class="fas fa-search" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/ End Shop Top -->
+                    </div>
+                </div>
+                <div class="row">
+                    <ng-container *ngFor="let a of articles._embedded.articles | filter:searchText" >
+                        <div class="col-xl-3 col-lg-4 col-md-4 col-12" *ngIf=" a.sousCategorieArt.libelleSousCat == sousCat.libelleSousCat">
+
+                            <div class="single-product">
+                                <div class="product-img">
+                                    <a href="product-details.html">
+                                       <img class="default-img" src="{{a.imageName}}" alt="#">
+                                    </a>
+                                    <div class="button-head">
+                                        <div class="product-action">
+                                            <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+                                            <a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+                                            <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+                                        </div>
+                                        <div class="product-action-2">
+                                            <a title="Add to cart" >Add to cart</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <h3><a routerLink="/getArticle/id" (click)="ongetArticle(a.id)" >{{a.designtationArt}}</a></h3>
+                                    <div class="product-price">
+                                        <span>{{a.prixArt}} Dt</span>
+                                    </div>
+                                </div>
+                            </div>
+                          
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</section>
+<!--/ End Product Style 1  -->	
+<app-footer></app-footer>
