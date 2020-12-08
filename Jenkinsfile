@@ -10,12 +10,14 @@ pipeline {
 		
 		stage('NPM Install') {
 			steps {
-			
-				
-				
 				bat 'npm install'
-				
-			
+
+				  }
+		}
+			stage('Build') {
+			steps {
+				bat 'npm run build --prod'
+
 				  }
 		}
 		stage('Build Docker Image'){
