@@ -10,16 +10,12 @@ pipeline {
 		
 		stage('NPM Install') {
 			steps {
+				 bat 'npm run-script build'
 				bat 'npm install'
 
 				  }
 		} 
-			stage('Build') {
-			steps {
-				bat 'npm run ng build --prod'
-
-				  }
-		}
+			
 		stage('Build Docker Image'){
 			steps{
         		bat 'docker build -t omarkorbi/front-angular:latest .'
