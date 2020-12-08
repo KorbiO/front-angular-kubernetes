@@ -4,7 +4,7 @@ pipeline {
 	stages {
 		stage('SCM Checkout'){
 			steps{
-        	git credentialsId: 'gitPwd', url: 'https://github.com/KorbiO/discovery-service'
+        	git credentialsId: 'gitPwd', url: 'https://github.com/KorbiO/front-angular-kubernetes'
         		}
     }
 		
