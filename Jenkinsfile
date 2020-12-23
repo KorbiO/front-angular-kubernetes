@@ -7,15 +7,7 @@ pipeline {
         	git credentialsId: 'gitPwd', url: 'https://github.com/KorbiO/front-angular-kubernetes'
         		}
     }
-		
-		stage('NPM Install') {
-			steps {
-				 bat 'npm run-script build'
-				bat 'npm install'
-
-				  }
-		} 
-			
+	
 		stage('Build Docker Image'){
 			steps{
         		bat 'docker build -t omarkorbi/front-angular:latest .'
